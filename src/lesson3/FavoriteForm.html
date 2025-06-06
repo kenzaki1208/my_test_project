@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo form yêu thích</title>
+    <link rel="stylesheet" href="../css/FavoriteForm.css">
+</head>
+<body>
+
+    <form action="FavoriteForm.html">
+        <table>
+            <thead>
+                <tr>
+                    <td><h1>Sở thích của bạn</h1></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="name">Họ và tên: </td>
+                    <td colspan="4"><input type="text" name="uname" style="width: 75%;"/></td>
+                </tr>
+                <tr>
+                    <td class="email">Email: </td>
+                    <td colspan="4"><input type="text" name="email"></td>
+                </tr>
+                <tr>
+                    <td class="favorite">Sở thích: </td>
+                    <td class="action">
+                        <input type="checkbox" name="sport"/>Thể thao
+                        <input type="checkbox" name="music"/>Âm nhạc
+                        <input type="checkbox" name="read"/>Đọc sách
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="action" style="justify-content: space-between">
+                        <input type="checkbox" name="search"/>Lướt web
+                        <input type="checkbox" name="game"/>Chơi game
+                        <input type="checkbox" name="movie"/>Điện ảnh
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="action" ><input type="checkbox" name="travel"/>Du lịch</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <label><input type="submit" value="Gửi thông tin" onclick="alert_success()"></label>
+                        <label><input type="reset" value="Nhập lại"></label>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </form>
+
+    <script>
+        function alert_success() {
+            alert("Thông tin đc gửi thành công")
+        }
+    </script>
+</body>
+</html>
