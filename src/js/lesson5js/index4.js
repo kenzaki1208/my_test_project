@@ -13,7 +13,7 @@ function convert() {
     } else if (fromCurrency.value === "VND" && toCurrency.value === "USD") {
         result.innerHTML = amount.value / exchangeRateUSDtoVND + "USD" ;
     } else if (fromCurrency.value === "USD" && toCurrency.value === "EUR") {
-        result.innerHTML = amount.value * exchangeRateUSDtoVND + "EUR";
+        result.innerHTML = amount.value * exchangeRateUSDtoEUR + "EUR";
     } else if (fromCurrency.value === "EUR" && toCurrency.value === "USD") {
         result.innerHTML = amount.value / exchangeRateUSDtoEUR + "USD";
     } else if (fromCurrency.value === "EUR" && toCurrency.value === "VND") {
