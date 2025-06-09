@@ -5,29 +5,35 @@
     <title>Title</title>
 </head>
 <body>
-    <h1
-            onmouseover="this.style.color = 'red'"
-            onmouseout="this.style.color = 'black'"
-    >
-        C052561
-    </h1>
+<table>
+    <tr>
+        <td>
+            <label for="amount">Amount</label> <br>
+            <input type="number" name="amount" id="amount">
+        </td>
+        <td>
+            <label for="fromCurrency">From Currency</label> <br>
+            <select name="fromCurrency" id="fromCurrency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="VND">VND</option>
+            </select>
+        </td>
+        <td>
+            <label for="toCurrency">To Currency</label> <br>
+            <select name="fromCurrency" id="toCurrency">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+            </select>
+        </td>
+        <td> <br>
+            <button type="button" onclick="convert()">Convert</button>
+        </td>
+    </tr>
+</table>
+<div id="result"></div>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at,
-        laudantium magnam modi natus obcaecati pariatur quo repellendus? Debitis eligendi et,
-        incidunt ipsam labore modi saepe similique totam ut vel!
-    </p>
-
-    <button onclick="alert('Xin chào')">Click me!</button>
-
-<!--    <script src="../main.js"></script>-->
-    <script>
-        // Cách 1:
-        // alert('Hello World!');
-
-        var x, y, z;
-        x = 5;
-        y = 10;
-        z = x + y;
-    </script>
+    <script src="../js/lesson5js/index4.js"></script>
 </body>
 </html>
