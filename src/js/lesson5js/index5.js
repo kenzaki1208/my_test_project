@@ -23,7 +23,7 @@ function clearResult() {
 function calculateResult() {
     try {
         const value = display.value;
-        debugger;
+        // debugger;
         if (/[-+*/^√%]$/.test(display.value)) {
             alert("Biểu thức không hợp lệ, vui lòng hoàn thiện!");
             return;
@@ -61,6 +61,58 @@ function calculateResult() {
                     }
                 } else {
                     display.value = "số bị chia hoặc số chia ko phù hợp";
+                }
+            }
+        }
+        else if (value.includes("+")) {
+            const part = value.split("+");
+            if (part.length === 2) {
+                const a = parseFloat(part[0]);
+                const b = parseFloat(part[1]);
+                if (!isNaN(a) && !isNaN(b)) {
+                    display.value = a + b;
+                }
+                else {
+                    display.value = "Lỗi ko thể xác nhận";
+                }
+            }
+        }
+        else if (value.includes("-")) {
+            const part = value.split("-");
+            if (part.length === 2) {
+                const a = parseFloat(part[0]);
+                const b = parseFloat(part[1]);
+                if (!isNaN(a) && !isNaN(b)) {
+                    display.value = a - b;
+                }
+                else {
+                    display.value = "Lỗi ko thể xác nhận";
+                }
+            }
+        }
+        else if (value.includes("*")) {
+            const part = value.split("*");
+            if (part.length === 2) {
+                const a = parseFloat(part[0]);
+                const b = parseFloat(part[1]);
+                if (!isNaN(a) && !isNaN(b)) {
+                    display.value = a * b;
+                }
+                else {
+                    display.value = "Lỗi ko thể xác nhận";
+                }
+            }
+        }
+        else if (value.includes("/")) {
+            const part = value.split("/");
+            if (part.length === 2) {
+                const a = parseFloat(part[0]);
+                const b = parseFloat(part[1]);
+                if (!isNaN(a) && !isNaN(b)) {
+                    display.value = a / b;
+                }
+                else {
+                    display.value = "Lỗi ko thể xác nhận";
                 }
             }
         }
