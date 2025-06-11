@@ -1,0 +1,22 @@
+table {
+    border: 1px solid #a8a8a8;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #a8a8a8;
+}
+
+thead:nth-child(odd) {
+    background-color: #dddddd;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #edecec;
+}
+
+.radio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

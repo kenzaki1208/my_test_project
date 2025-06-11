@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>
+            <label for="amount">Amount</label> <br>
+            <input type="number" name="amount" id="amount">
+        </td>
+        <td>
+            <label for="fromCurrency">From Currency</label> <br>
+            <select name="fromCurrency" id="fromCurrency">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="VND">VND</option>
+            </select>
+        </td>
+        <td>
+            <label for="toCurrency">To Currency</label> <br>
+            <select name="fromCurrency" id="toCurrency">
+                <option value="VND">VND</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+            </select>
+        </td>
+        <td> <br>
+            <button type="button" onclick="convert()">Convert</button>
+        </td>
+    </tr>
+</table>
+<div id="result"></div>
+
+    <script src="../js/lesson5js/index4.js"></script>
+</body>
+</html>

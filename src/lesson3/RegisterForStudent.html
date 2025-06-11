@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký cho học viên</title>
+    <link rel="stylesheet" href="../css/Student.css">
+</head>
+<body>
+
+<form action="RegisterForStudent.html">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="4"><h1>Đăng ký cho học viên</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="col1"  colspan="1">Họ và tên: </td>
+                <td colspan="3"><input type="text" name="uname"></td>
+            </tr>
+            <tr>
+                <td class="col1"  colspan="1">Ngày sinh: </td>
+                <td colspan="3"><input type="date" name="birth"></td>
+            </tr>
+            <tr>
+                <td class="col1" colspan="1">Giới tính: </td>
+                <td colspan="3">
+                    <input type="radio" name="gender"> Nam
+                    <input type="radio" name="gender"> Nữ
+                </td>
+            </tr>
+            <tr>
+                <td class="col1"  style="display: flex" colspan="1">Địa chỉ: </td>
+                <td colspan="3">
+                    <textarea name="adress" cols="30" rows="5"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="col1"  colspan="1">Lớp: </td>
+                <td colspan="3">
+                    <select name="class">
+                        <option value="--Chọn lớp--">Chọn lớp</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="col1"  colspan="1">Email: </td>
+                <td colspan="3">
+                    <label><input type="text" name="email"></label>
+                </td>
+            </tr>
+            <tr>
+                <td class="col1"  colspan="1">Điện thoại: </td>
+                <td colspan="3">
+                    <label><input type="number" name="phone"></label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="1"></td>
+                <td colspan="3">
+                    <label><button type="submit" onclick="alert_success()">Đăng ký</button></label>
+                    <label><button type="reset">Nhập lại</button></label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
+
+<script>
+    function alert_success() {
+        alert("Thông tin đc gửi thành công")
+    }
+</script>
+</body>
+</html>
