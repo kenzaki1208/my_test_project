@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        let a = parseInt(prompt("Nhập số tiền bạn đã thu đc từ doan thu: "));
+        console.log(a);
+
+        if ( a <= 10000000 && a >= 5000000) {
+            let exMoney = a * 0.03;
+            console.log(a * 0.03);
+            document.write("Tiền hoa hồng bạn nhận đc là: " + exMoney);
+        } else if ( a > 10000001 && a < 20000000) {
+            let exMoney = a * 0.05;
+            document.write("Tiền hoa hồng bạn nhận đc là: " + exMoney);
+        } else if ( a >= 20000000) {
+            let exMoney = a * 0.07;
+            document.write("Tiền hoa hồng bạn nhận đc là: " + exMoney);
+        } else {
+            document.write("Số tiền quá nhỏ để nhận hoa hồng !");
+        }
+    </script>
+</body>
+</html>
