@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var box = $(".box"),
+    let box = $(".box"),
         original = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
         temp = original,
         x = [],
@@ -9,8 +9,8 @@ $(document).ready(function(){
         mm = 0,
         ss = 0,
         upIMG,
-        images = ["https://preview.ibb.co/kMdsfm/kfp.png","https://preview.ibb.co/kWOEt6/minion.png","https://preview.ibb.co/e0Rv0m/ab.jpg"]
-        img = 0;
+        images = ["https://preview.ibb.co/kMdsfm/kfp.png", "https://preview.ibb.co/kWOEt6/minion.png", "https://preview.ibb.co/e0Rv0m/ab.jpg"];
+    img = 0;
 
     $('.me').css({"background-image": 'url(' + images[0] + ')'});
 
@@ -28,7 +28,7 @@ $(document).ready(function(){
     function Start(){
         randomTitle();
         changeBG(img);
-        var count = 0,
+        let count = 0,
             a, b, A, B;
         $(".me").click(function(){
             count++;
@@ -58,7 +58,7 @@ $(document).ready(function(){
             if (arraysEqual(x)) {
                 data2 = new Date();
                 timeDifference();
-                showScore;
+                showScore();
                 return 0;
             }
         });
@@ -66,9 +66,9 @@ $(document).ready(function(){
     }
 
     function randomTitle(){
-        var i;
+        let i;
         for (i = original.length - 1; i >= 0; i--) {
-            var flag = getRandom(0, i);
+            const flag = getRandom(0, i);
             x[i] = temp[flag];
             temp[flag] = temp[i];
             temp[i] = x[i];
@@ -84,7 +84,7 @@ $(document).ready(function(){
     }
 
     function arraysEqual(arr) {
-        var i;
+        let i;
         for (i = original.length - 1; i >= 0; i--) {
             if (arr[i] !== i) return false;
         }
@@ -92,7 +92,7 @@ $(document).ready(function(){
     }
 
     function checkCorrect(N1) {
-        var pos = x.indexOf(parseInt(N1, 10));
+        const pos = x.indexOf(parseInt(N1, 10));
         if (pos !== N1) {
             return;
         }
@@ -101,7 +101,7 @@ $(document).ready(function(){
     }
 
     function swapping(N1, N2) {
-        var first = x.indexOf(parseInt(N1, 10)),
+        const first = x.indexOf(parseInt(N1, 10)),
             second = x.indexOf(parseInt(N2, 10));
         x[first] = parseInt(N2, 10);
         x[second] = parseInt(N1, 10);
@@ -113,8 +113,8 @@ $(document).ready(function(){
     }
 
     function timeDifference() {
-        var msec = date2 - date1;
-        var hh = Math.floor(msec / 1000 / 60 / 60);
+        let msec = date2 - date1;
+        const hh = Math.floor(msec / 1000 / 60 / 60);
         msec -= hh * 1000 * 60 * 60;
         mm = Math.floor(msec / 1000 / 60);
         msec -= mm * 1000 * 60;
