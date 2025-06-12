@@ -60,10 +60,8 @@
             totalTax = (5000000 * 0.05) + (5000000 * 0.1) + (8000000 * 0.15) + (14000000 * 0.2) + ((taxableIncome - 32000000) * 0.25);
         } else if (taxableIncome > 52000001 && taxableIncome<= 80000000) {
             totalTax = (5000000 * 0.05) + (5000000 * 0.1) + (8000000 * 0.15) + (14000000 * 0.2) + (20000000 * 0.25) + ((taxableIncome - 52000000) * 0.3);
-            console.log(totalTax);
         } else if (taxableIncome > 80000001) {
             totalTax = (5000000 * 0.05) + (5000000 * 0.1) + (8000000 * 0.15) + (14000000 * 0.2) + (20000000 * 0.25) + (28000000 * 0.3) + ((taxableIncome - 80000000) * 0.35);
-            console.log(totalTax);
         }
         console.log(totalTax)
         document.getElementById("result").innerText = `Tổng thuế thu nhập cá nhân của bạn là: ${totalTax.toLocaleString('vi-VN')} VND`;
