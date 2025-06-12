@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <script>
+        let a = parseInt(prompt("Nhập điểm kiểm tra: "));
+        let b = parseInt(prompt("Nhập điểm thi giữa kì: "));
+        let c = parseInt(prompt("Nhập điểm thi cuối kì: "));
+        let DTB = (a + 2*b +3*c) / 7;
+
+        if ( a > 0 && a <= 10) {
+            if (b > 0 && b <= 10) {
+                if (c > 0 && c <= 10) {
+                    if (DTB >= 8 ) {
+                        document.write("Chúc mừng bạn xếp hạng loại giỏi !");
+                    } else if (DTB >= 6.5 ) {
+                        document.write("Chúc mừng bạn xếp hạng loại khá !");
+                    } else if (DTB >= 5) {
+                        document.write("Chúc mừng bạn vẫn còn thở, xếp hạng trung bình !");
+                    } else if (DTB < 5) {
+                        document.write("Xin chia buồn, năm sau học lại cho chắc nhé !")
+                    }
+                } else {
+                    alert("Bạn nhật sai thông tin vui lòng nhập lại");
+                }
+            }
+            else {
+                alert("Bạn nhật sai thông tin vui lòng nhập lại");
+            }
+        } else {
+            alert("Bạn nhật sai thông tin vui lòng nhập lại");
+        }
+    </script>
+</body>
+</html>

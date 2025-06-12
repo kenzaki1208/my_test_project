@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        let a = parseInt(prompt("Nhập số điện đã tiêu thụ tháng này: "));
+        let VAT = 0.08;
+
+        if (a > 0) {
+            if (a <= 50) {
+                exChangeM = a * 1806;
+                fee = exChangeM * VAT;
+                total = exChangeM + fee;
+                document.write("Tổng số tiền điện tháng này là: " + total + " đồng");
+            } else if (a > 51 && a <= 100) {
+                exChangeM = 50 * 1806;
+                exChangeM2 = (a-50) * 1866;
+                fee = (exChangeM + exChangeM2) * VAT;
+                total = exChangeM + exChangeM2 + fee;
+                document.write("Tổng số tiền điện tháng này là: " + total + " đồng");
+            } else if (a > 101 && a <= 200) {
+                exChangeM = 50 * 1806;
+                exChangeM2 = 50 * 1866;
+                exChangeM3 = (a-100) * 2167;
+                fee = (exChangeM + exChangeM2 + exChangeM3) * VAT;
+                total = exChangeM + exChangeM2 + exChangeM3 + fee;
+                document.write("Tổng số tiền điện tháng này là: " + total + " đồng");
+            } else if (a > 201 && a <= 300) {
+                exChangeM = 50 * 1806;
+                exChangeM2 = 50 * 1866;
+                exChangeM3 = 100 * 2167;
+                exChangeM4 = (a-100) * 2729;
+                fee = (exChangeM + exChangeM2 + exChangeM3 + exChangeM4) * VAT;
+                total = exChangeM + exChangeM2 + exChangeM3 + exChangeM4 + exChangeM;
+                document.write("Tổng số tiền điện tháng này là: " + total + " đồng");
+            } else if (a > 301 && a <= 400) {
+                exChangeM = 50 * 1806;
+                exChangeM2 = 50 * 1866;
+                exChangeM3 = 100 * 2167;
+                exChangeM4 = 100 * 2729;
+                exChangeM5 = (a-100) * 3050;
+                fee = (exChangeM + exChangeM2 + exChangeM3 + exChangeM4 + exChangeM5) * VAT;
+                total = exChangeM + exChangeM2 + exChangeM3 + exChangeM4 + exChangeM5 + fee;
+                document.write("Tổng số tiền điện tháng này là: " + total + " đồng");
+            } else if (a > 401) {
+                exChangeM = 50 * 1806;
+                exChangeM2 = 50 * 1866;
+                exChangeM3 = 100 * 2167;
+                exChangeM4 = 100 * 2729;
+                exChangeM5 = 100 * 3050;
+                exChangeM6 = (a-400) * 3151;
+                fee = (exChangeM + exChangeM2 + exChangeM3 + exChangeM4 + exChangeM5 + exChangeM6) * VAT;
+                total = exChangeM + exChangeM2 + exChangeM3 + exChangeM4 + exChangeM5 + exChangeM6 + fee;
+                document.write("Tổng số tiền điện tháng này là: " + total + " đồng");
+            }
+        } else {
+            document.write("Bạn nhập sai thông tin !")
+        }
+    </script>
+</body>
+</html>

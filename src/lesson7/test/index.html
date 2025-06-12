@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 8: Conditional</title>
+</head>
+<body>
+
+
+    <script>
+        // const grade = prompt("Nhập vào điểm (> 0 & <= 100): ");
+
+        // if (grade > 45) {
+        //     console.log('Giỏi');
+        //     console.log('Chúc mừng, bạn đã đậu !');
+        // } else {
+        //     console.log('Chúc bạn may mắn lần sau')
+        // }
+
+        // if (grade >= 50) {
+        //     if (grade >= 65) {
+        //         if (grade >= 75) {
+        //             if (grade >= 85) {
+        //                 console.log('A')
+        //             }
+        //             else {
+        //                 console.log('B')
+        //             }
+        //         }
+        //         else {
+        //             console.log('C')
+        //         }
+        //     }
+        //     else {
+        //         console.log('D')
+        //     }
+        // }
+        // else {
+        //     console.log('F')
+        // }
+
+        // if (grade >= 85) {
+        //     console.log("A");
+        // } else if (grade >= 75) {
+        //     console.log("B");
+        // } else if (grade >= 65) {
+        //     console.log("C");
+        // } else if (grade >= 55) {
+        //     console.log("D");
+        // } else if (grade >= 45) {
+        //     console.log("E");
+        // } else if (grade >= 35) {
+        //     console.log("F");
+        // } else {
+        //     console.log("You're done, you must study again !");
+        // }
+
+        // let chu = prompt("Nhập vào 1 chữ cái (a-z): ");
+
+        // if (chu === 'u' || chu === 'o'|| chu === 'a' || chu === 'i') {
+        //     console.log("Đây là nguyên âm");
+        // } else {
+        //     console.log('Đây ko phải là nguyên âm');
+        // }
+
+        // switch(chu) {
+        //     case "u":
+        //     case "o":
+        //     case "i":
+        //     case "a":
+        //         console.log("Đây là nguyên âm");
+        //         break;
+        //     default:
+        //         console.log("Đây ko phải là nguyên âm");
+        // }
+
+        const day = new Date().getDay();
+        const MON = 1, TUE = 2, WED = 3, THU = 4, FRI = 5, SAT = 6, SUN = 0;
+        console.log(day);
+        switch (day) {
+            case MON:
+            case TUE:
+            case WED:
+            case THU:
+            case FRI:
+                console.log("Weekday");
+                break;
+            case SUN:
+            case SAT:
+                console.log("Weekend");
+        }
+    </script>
+</body>
+</html>

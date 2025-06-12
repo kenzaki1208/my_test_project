@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+  <script>
+    let a = parseInt(prompt("Nhập cạnh thứ nhất là: "));
+    let b = parseInt(prompt("Nhập cạnh thứ hai là: "));
+    let area_S = (a * b) / 2;
+
+    if (a > 0) {
+      if (b > 0) {
+        document.write("Diện tích tam giác vuông là: " + area_S);
+      }
+      else {
+        document.write("Bạn nhập sai thông tin !");
+      }
+    }
+    else {
+      document.write("Bạn nhập sai thông tin !");
+    }
+  </script>
+</body>
+</html>

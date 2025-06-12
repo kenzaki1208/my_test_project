@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+  <script>
+    let a = parseInt(prompt("Nhập số thứ nhất: "));
+    let b = parseInt(prompt("Nhập số thứ hai: "));
+    let c = parseInt(prompt("Nhập số thứ ba: "));
+    let delta = Math.pow(b, 2) - 4*(a*c);
+    console.log(Math.sqrt(delta));
+    // console.log(Math.pow(b, 2)); // Math.pow(số thực, số mũ)
+    // console.log(4*a*c);
+
+    if (delta < 0) {
+      document.write("Phương trình vô nghiệm !");
+    } else if (delta === 0) {
+      document.write("Phương trình có nghiệm kép là: " + "x1 " + "=" + " x2 " + "= " + (-b)/2*a);
+    } else {
+      document.write("Phương trình có 2 nghiệm là: " + "x1 = " + (-b + Math.sqrt(delta))/2*a + " và " + "x2 =" + (-b - Math.sqrt(delta))/2*a)
+    }
+  </script>
+</body>
+</html>
