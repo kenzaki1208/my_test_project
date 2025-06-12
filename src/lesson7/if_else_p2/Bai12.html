@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Tính lãi ngân hàng (Lãi kép)</h1>
+        <div class="input-group">
+            <label for="principal">Số tiền ban đầu:</label>
+            <input type="number" id="principal">
+        </div>
+        <div class="input-group">
+            <label for="months">Số tháng cho vay:</label>
+            <input type="number" id="months">
+        </div>
+        <div class="input-group">
+            <label for="interest">Lãi suất hàng tháng (%):</label>
+            <input type="number" id="interest">
+        </div>
+        <button onclick="calculateInterest()">Tính lãi</button>
+        <div id="result">
+            <p>Tổng tiền phải trả:</p>
+            <span id="totalAmount"></span>
+        </div>
+
+        <script>
+            function calculateInterest() {
+                const principal = parseFloat(document.getElementById("principal").value);
+                const months = parseInt(document.getElementById("months").value);
+                const interestRate = parseFloat(document.getElementById("interest").value) / 100;
+
+                if (isNaN(principal) || isNaN(months) || isNaN(interestRate) || principal <= 0 || months <= 0 || interestRate < 0) {
+                    alert("Vui lòng nhập đúng thông tin.");
+                    return;
+                }
+
+                let totalAmount = principal;
+                for (let i = 0; i < months; i++) {
+                    totalAmount += totalAmount * interestRate;
+                }
+
+                document.getElementById("totalAmount").textContent = totalAmount.toFixed(2) + " VNĐ";
+            }
+        </script>
+</div>
+</body>
+</html>
