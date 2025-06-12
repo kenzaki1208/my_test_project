@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="Bai11.html">
+    <form onsubmit="event.preventDefault(); calculateTax()">
         <table>
             <tr>
                 <td colspan="2"><h1>Tính thuế thu nhập cá nhân</h1></td>
@@ -14,83 +14,59 @@
                 <td><label>Nhập thu nhập cá nhân của bạn</label></td>
             </tr>
             <tr>
-                <td><label><input type="number" id="personalIncome"/></label></td>
+                <td><label><input type="number" id="personalIncome" min="0" required/></label></td>
             </tr>
             <tr>
                 <td><label>Nhập số lượng người phụ thuộc</label></td>
             </tr>
             <tr>
-                <td><label><input type="number" id="dependents"/></label></td>
+                <td><label><input type="number" id="dependents" min="0" value="0" required/></label></td>
             </tr>
             <tr>
-                <td><button type="submit" id="result" onclick="submit()">Xác nhận</button></td>
+                <td><button type="submit">Xác nhận</button></td>
+            </tr>
+            <tr>
+                <td><p id="result"></p></td>
             </tr>
         </table>
     </form>
 
   <script>
-    let personalIncome = document.getElementById("personalIncome");
-    let dependents = document.getElementById("dependents");
-    let totalTax = 0;
+    function calculateTax() {
+        let personalIncome = parseFloat(document.getElementById("personalIncome").value);
+        let dependents = parseInt(document.getElementById("dependents").value);
 
-    let insurance = personalIncome * 0.1; // Bảo hiểm
-    let familyDeduction = 11000000; // Giảm trừ gia cảnh
-    let numberFamily = dependents * 4400000; // Người phụ thuộc
+        if (isNaN(personalIncome) || isNaN(dependents) || personalIncome < 0 || dependents < 0) {
+            document.getElementById("result").innerText = "Vui lòng nhập số hợp lệ (không âm).";
+        }
 
-    let taxableIncome = (personalIncome - insurance) - (familyDeduction + numberFamily);
+        const insurance = personalIncome * 0.1; // Bảo hiểm
+        const familyDeduction = 11000000; // Giảm trừ gia cảnh
+        const numberFamily = dependents * 4400000; // Người phụ thuộc
 
-    if (personalIncome < 5000000) {
-        totalTax = taxableIncome * 0.05;
-        console.log(totalTax);
-    } else if (personalIncome > 5000001 && personalIncome <= 10000000) {
-        firstTax = 5000000 * 0.05;
-        secondTax = personalIncome * 0.1;
-        totalTax = firstTax + secondTax;
-        console.log(totalTax);
-    } else if (personalIncome > 10000001 && personalIncome <= 18000000) {
-        firstTax = 5000000 * 0.05;
-        secondTax = 5000000 * 0.1;
-        thirdTax = personalIncome * 0.15;
-        totalTax = firstTax + secondTax + thirdTax;
-        console.log(totalTax);
-    } else if (personalIncome > 18000001 && personalIncome <= 32000000) {
-        firstTax = 5000000 * 0.05;
-        secondTax = 5000000 * 0.1;
-        thirdTax = 8000000 * 0.15;
-        fourthTax = personalIncome * 0.2;
-        totalTax = firstTax + secondTax + thirdTax + fourthTax;
-        console.log(totalTax);
-    } else if (personalIncome > 32000001 && personalIncome <= 52000000) {
-        firstTax = 5000000 * 0.05;
-        secondTax = 5000000 * 0.1;
-        thirdTax = 8000000 * 0.15;
-        fourthTax = 14000000 * 0.2;
-        fifthTax = personalIncome * 0.25;
-        totalTax = firstTax + secondTax + thirdTax + fourthTax + fifthTax;
-        console.log(totalTax);
-    } else if (personalIncome > 52000001 && personalIncome <= 80000000) {
-        firstTax = 5000000 * 0.05;
-        secondTax = 5000000 * 0.1;
-        thirdTax = 8000000 * 0.15;
-        fourthTax = 14000000 * 0.2;
-        fifthTax = 20000000 * 0.25;
-        sixthTax = personalIncome * 0.3;
-        totalTax = firstTax + secondTax + thirdTax + fourthTax + fifthTax + sixthTax;
-        console.log(totalTax);
-    } else if (personalIncome > 80000001) {
-        firstTax = 5000000 * 0.05;
-        secondTax = 5000000 * 0.1;
-        thirdTax = 8000000 * 0.15;
-        fourthTax = 14000000 * 0.2;
-        fifthTax = 20000000 * 0.25;
-        sixthTax = 28000000 * 0.3;
-        seventhTax = personalIncome * 0.35;
-        totalTax = firstTax + secondTax + thirdTax + fourthTax + fifthTax + sixthTax + seventhTax;
-        console.log(totalTax);
-    }
+        const taxableIncome = personalIncome - insurance - familyDeduction - numberFamily;
 
-    function submit() {
-        alert("Thuế thu nhập cá nhân của bạn là: " + totalTax)
+        let totalTax = 0;
+
+        if (taxableIncome <= 5000000) {
+            totalTax = taxableIncome * 0.05;
+        } else if (taxableIncome > 5000001 && taxableIncome <= 10000000) {
+            totalTax = (5000000 * 0.05) + ((taxableIncome - 5000000) * 0.1);
+        } else if (taxableIncome > 10000001 && taxableIncome <= 18000000) {
+            totalTax = (5000000 * 0.05) + (5000000 * 0.1) + ((taxableIncome - 10000000) * 0.15);
+        } else if (taxableIncome > 18000001 && taxableIncome <= 32000000) {
+            totalTax = (5000000 * 0.05) + (5000000 * 0.1) + (8000000 * 0.15) + ((taxableIncome - 18000000) * 0.2);
+        } else if (taxableIncome > 32000001 && taxableIncome <= 52000000) {
+            totalTax = (5000000 * 0.05) + (5000000 * 0.1) + (8000000 * 0.15) + (14000000 * 0.2) + ((taxableIncome - 32000000) * 0.25);
+        } else if (taxableIncome > 52000001 && taxableIncome<= 80000000) {
+            totalTax = (5000000 * 0.05) + (5000000 * 0.1) + (8000000 * 0.15) + (14000000 * 0.2) + (20000000 * 0.25) + ((taxableIncome - 52000000) * 0.3);
+            console.log(totalTax);
+        } else if (taxableIncome > 80000001) {
+            totalTax = (5000000 * 0.05) + (5000000 * 0.1) + (8000000 * 0.15) + (14000000 * 0.2) + (20000000 * 0.25) + (28000000 * 0.3) + ((taxableIncome - 80000000) * 0.35);
+            console.log(totalTax);
+        }
+        console.log(totalTax)
+        document.getElementById("result").innerText = `Tổng thuế thu nhập cá nhân của bạn là: ${totalTax.toLocaleString('vi-VN')} VND`;
     }
 
   </script>
