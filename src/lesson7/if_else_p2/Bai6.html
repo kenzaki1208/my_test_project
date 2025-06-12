@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        let a = parseInt(prompt("Nhập số thứ nhất: "));
+        let b = parseInt(prompt("Nhâp số thứ hai: "));
+        let x = (-a)/b;
+
+        if (a !== 0 && b > 0) {
+            document.write("Phương trình bậc 1 của x là: " + x);
+        } else if (a === 0 && b > 0) {
+            document.write("Phương trình có 1 nghiệm duy nhất là: " + x);
+        } else {
+            document.write("Phương trình vô nghiệm !");
+        }
+    </script>
+</body>
+</html>

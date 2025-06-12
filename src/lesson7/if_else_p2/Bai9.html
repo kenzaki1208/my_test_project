@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+  <script>
+    let a = parseInt(prompt("Nhập số thứ nhất: "));
+    let b = parseInt(prompt("Nhập số thứ hai: "));
+    let c = parseInt(prompt("Nhập số thứ ba: "));
+
+    if ( a > 0 && b > 0 && c > 0) {
+      if (a + b > c) {
+        if (b + c > a) {
+          if (a + c > b) {
+            document.write("3 cạnh bạn vừa nhập có thể hình thành 1 tam giác !");
+          }
+          else {
+            document.write("Ko thể hình thành 1 tam giác !");
+          }
+        }
+        else {
+          document.write("Ko thể hình thành 1 tam giác !");
+        }
+      }
+      else {
+        document.write("Ko thể hình thành 1 tam giác !");
+      }
+    }
+    else {
+      document.write("Ko thể hình thành 1 tam giác !");
+    }
+  </script>
+</body>
+</html>
