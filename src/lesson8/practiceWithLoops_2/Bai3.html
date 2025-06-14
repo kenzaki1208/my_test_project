@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+  <script>
+    let n = parseInt(prompt("Nhập cạnh thứ nhất của 1 tam giác: "));
+
+    // for (let i = 0; i <= n; i++) {
+    //   for (let j = 0; j <= i; j++) {
+    //     document.write(" * ");
+    //   }
+    //   document.write("<br/>");
+    // }
+
+    // Hàm in dấu cách
+    function printSpaces(count) {
+        for (let i = 0; i < count; i++) {
+            document.write("&ensp; "); // Dấu cách HTML
+        }
+    }
+
+    // Hàm in dấu sao
+    function printStars(count) {
+        for (let i = 0; i < count; i++) {
+            document.write("* ");
+        }
+    }
+
+    // 1. Tam giác vuông góc trái dưới (như code ban đầu)
+    document.write("<h3>Tam giác vuông góc trái dưới:</h3>");
+    for (let i = 1; i <= n; i++) {
+        printStars(i);
+        document.write("<br/>");
+    }
+
+    // 2. Tam giác vuông góc trái trên
+    document.write("<h3>Tam giác vuông góc trái trên:</h3>");
+    for (let i = n; i >= 1; i--) {
+        printStars(i);
+        document.write("<br/>");
+    }
+
+    // 3. Tam giác vuông góc phải dưới
+    document.write("<h3>Tam giác vuông góc phải dưới:</h3>");
+    for (let i = 1; i <= n; i++) {
+        printSpaces(n - i);
+        printStars(i);
+        document.write("<br/>");
+    }
+
+    // 4. Tam giác vuông góc phải trên
+    document.write("<h3>Tam giác vuông góc phải trên:</h3>");
+    for (let i = n; i >= 1; i--) {
+        printSpaces(n - i);
+        printStars(i);
+        document.write("<br/>");
+    }
+  </script>
+</body>
+</html>
