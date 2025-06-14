@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="fibo"></p>
+
+    <script>
+        function fibonacci (num) {
+            if (num <= 1) {
+                return num;
+            }
+
+            let a = 0;
+            let b = 1;
+            let result = [];
+
+            while (result.length < num) {
+                result.push(a);
+                let temp = a + b;
+                a = b;
+                b = temp;
+            }
+            return result;
+        }
+        document.getElementById('fibo').innerHTML = fibonacci(20).join(' <br>');
+    </script>
+</body>
+</html>

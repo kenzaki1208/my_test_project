@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        let temp = 0;
+
+        do {
+            temp = parseFloat(prompt("Nhập nhiệt độ người dùng: "));
+            if (temp > 100) {
+                alert("Nhiệt độ của bạn là: " + temp + " ℃. " + "Yêu cầu người dùng giảm nhiệt độ !");
+            } else if (temp > 0 && temp < 20) {
+                alert("Nhiệt độ của bạn là: " + temp + " ℃. " + "Yêu cầu người dùng tăng nhiệt độ !");
+            } else if (temp > 20 && temp < 100) {
+                alert("Nhiệt độ của bạn là: " + temp + " ℃. " + "Bạn đang trong nhiệt độ ổn định !");
+            } else if (temp < 0) {
+                alert("Bạn đã thoát khỏi chương trình !");
+                break;
+            }
+        }  while (temp != -1);
+
+        // for (let i = 0; i < temp; i++) {
+        //     if (temp > 100) {
+        //         document.write("Nhiệt độ của bạn là: " + temp + " ℃. " + "Yêu cầu người dùng giảm nhiệt độ !");
+        //     } else if (temp < 20) {
+        //         document.write("Nhiệt độ của bạn là: " + temp + " ℃. " + "Yêu cầu người dùng tăng nhiệt độ !");
+        //     } else {
+        //         document.write("Nhiệt độ của bạn là: " + temp + " ℃. " + "Bạn đang trong nhiệt độ ổn định !")
+        //     }
+        // }
+    </script>
+</body>
+</html>

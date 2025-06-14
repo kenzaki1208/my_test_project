@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="result"></p>
+
+
+    <script>
+        let total = "";
+        for (let i = 1; i <= 100; i++) {
+            if (i === 100) {
+                alert("đã hoàn thành");
+                break;
+            } else {
+                total += i + "<br>";
+            }
+        }
+        document.getElementById("result").innerHTML = total;
+    </script>
+</body>
+</html>
