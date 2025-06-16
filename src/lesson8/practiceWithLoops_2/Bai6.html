@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        pre {
+            line-height: 0.6; /* Giảm chiều cao dòng để trái tim gọn lại */
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <pre id="heart"></pre>
+
+    <script>
+        function drawHeart() {
+            const size = 10;
+            let heart = '';
+            const total_width = 2 * size - 1;
+
+            // Top part
+            for (let i = 0; i < size / 2; i++) {
+                let stars = 2 * i + 1;
+                let middle_spaces = (size / 2 - i) * 2 - 1;
+                if (middle_spaces < 0) middle_spaces = 0;
+                let content_length = 2 * stars + middle_spaces;
+                let leading_spaces = Math.floor((total_width - content_length) / 2);
+                heart += ' '.repeat(leading_spaces) + '*'.repeat(stars) + ' '.repeat(middle_spaces) + '*'.repeat(stars) + '\n';
+            }
+
+            heart += '*'.repeat(total_width) + '\n';
+
+            for (let i = 1; i < size; i++) {
+                let stars = 2 * (size - i) - 1;
+                let leading_spaces = Math.floor((total_width - stars) / 2); // Center the row
+                heart += ' '.repeat(leading_spaces) + '*'.repeat(stars) + '\n';
+            }
+
+            document.getElementById('heart').textContent = heart;
+        }
+
+        drawHeart();
+    </script>
+</body>
+</html>

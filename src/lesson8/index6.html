@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      tr, td {
+        border: 1px solid red;
+      }
+      table {
+        width: 100%;
+        height: 100%;
+        border-collapse: collapse;
+        text-align: center;
+      }
+    </style>
+</head>
+<body>
+<!--  <p id="result"></p>-->
+
+  <table id="main">
+  </table>
+  <script>
+    // let num = 0;
+    // let total = 0;
+    //
+    // while (total < 2520 - num) {
+    //   total += num;
+    //   num++;
+    //   console.log(total);
+    //   document.write(num);
+    // }
+    // document.getElementById("result").innerHTML = total;
+
+    // let total = 0;
+    // let number;
+    // do {
+    //   number = +prompt('Nhập số: ');
+    //   if (isNaN(number)) {
+    //     break;
+    //   }
+    //   total += number;
+    // } while (true);
+    //
+    // document.write(total);
+
+    let html = "";
+    let m = +prompt("Nhập m hàng: ");
+    let n = +prompt("Nhập n cột: ");
+
+    for (let i = 1; i < m; i++) {
+      html += `<tr>`;
+      for (let j = 2; j < n; j++) {
+        html += `<td>`;
+        html += j + "x" + i + "=" + i * j;
+        html += `</td>`;
+      }
+      html += `</tr>`;
+    }
+
+    document.getElementById("main").innerHTML = html;
+  </script>
+</body>
+</html>

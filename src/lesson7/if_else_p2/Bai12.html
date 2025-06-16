@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Tính lãi ngân hàng</h1>
+
+    <label for="principal">Số tiền ban đầu:</label>
+    <input type="number" id="principal" placeholder="Nhập số tiền"> <br><br>
+
+    <label for="months">Số tháng cho vay:</label>
+    <input type="number" id="months" placeholder="Nhập số tháng"> <br><br>
+
+    <label for="interest_rate">Lãi suất hàng tháng (%):</label>
+    <input type="number" id="interest_rate" placeholder="Nhập lãi suất"> <br><br>
+
+    <label for="interest_type">Loại hình lãi:</label>
+    <select id="interest_type">
+        <option value="interest">Lãi mẹ đẻ</option>
+        <option value="compoundInterest">Lãi mẹ đẻ lãi con</option>
+        <option value="floatingInterest">Lãi thả nổi (chưa hỗ trợ)</option>
+    </select> <br><br>
+
+    <button onclick="calculateInterest()">Tính lãi</button>
+
+    <div class="result" id="result"></div>
+
+        <script>
+            function calculateInterest() {
+                const principal = parseFloat(document.getElementById("principal").value);
+                const months = parseInt(document.getElementById("months").value);
+                const interest_rate = parseFloat(document.getElementById("interest_rate").value) / 100;
+                const interest_type = document.getElementById("interest_type").value;
+                let totalInterest = 0;
+                let totalAmount = principal;
+
+                if (interest_type === "interest") {
+                    totalInterest = principal * interest_rate * months;
+                    totalAmount = principal + totalInterest;
+                } else if (interest_type === "compoundInterest") {
+                    for (let i = 0; i < months; i++) {
+                        let interest = totalAmount * interest_rate;
+                        totalInterest += interest;
+                        totalAmount += interest;
+                    }
+                } else {
+                    document.getElementById("result").innerHTML = "Chức năng lãi thả nổi chưa được hỗ trợ.";
+                    return;
+                }
+
+                document.getElementById("result").innerHTML = "Tổng lãi: " + totalInterest.toFixed(2) + "<br>" + "Tổng số tiền: " + totalAmount.toFixed(2);
+            }
+        </script>
+</body>
+</html>

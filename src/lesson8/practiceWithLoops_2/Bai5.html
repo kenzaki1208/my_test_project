@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Tính lãi ngân hàng</h1>
+        <div class="form-group">
+            <label for="soTienGoc">Số tiền ban đầu:</label>
+            <input type="number" id="soTienGoc" placeholder="Nhập số tiền ban đầu">
+        </div>
+        <div class="form-group">
+            <label for="soThang">Số tháng vay:</label>
+            <input type="number" id="soThang" placeholder="Nhập số tháng vay">
+        </div>
+        <div class="form-group">
+            <label for="laiSuat">Lãi suất hàng tháng (%):</label>
+            <input type="number" id="laiSuat" placeholder="Nhập lãi suất hàng tháng">
+        </div>
+        <button onclick="tinhLai()">Tính lãi</button>
+        <div id="result">
+            <p id="ketQua"></p>
+            <p id="tongTien"></p>
+        </div>
+
+        <script>
+            function tinhLai() {
+                const soTienGoc = parseFloat(document.getElementById("soTienGoc").value);
+                const soThang = parseInt(document.getElementById("soThang").value);
+                const laiSuat = parseFloat(document.getElementById("laiSuat").value) / 100;
+                let ketQua = "";
+                let tongTien = soTienGoc;
+
+                for (let i = 1; i <= soThang; i++) {
+                    const laiThang = tongTien * laiSuat;
+                    tongTien += laiThang;
+                    ketQua += "Tháng " + i + ": Lãi = " + laiThang.toFixed(2) + " VNĐ, Tổng tiền = " + tongTien.toFixed(2) + " VNĐ<br>";
+                }
+
+                document.getElementById("ketQua").innerHTML = ketQua;
+                document.getElementById("tongTien").textContent = "Tổng tiền sau " + soThang + " tháng: " + tongTien.toFixed(2) + " VNĐ";
+            }
+        </script>
+    </div>
+</body>
+</html>

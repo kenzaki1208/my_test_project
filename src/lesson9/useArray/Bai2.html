@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="demo"></p>
+
+    <script>
+        let listNumber = []
+
+        for (let i = 0; i < 50; i++) {
+            if (i % 2 === 0) {
+                listNumber.push(i);
+                document.getElementById("demo").innerHTML = listNumber.join(" - ");
+            }
+        }
+    </script>
+</body>
+</html>

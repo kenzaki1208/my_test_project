@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+  <script>
+    // let num = +prompt("Nhập vào số nguyên tố:");
+    // let check = true;
+    //
+    // if (num < 2) {
+    //   document.write("Số nhập vào phải >= 2")
+    // } else {
+    //   if (num === 2) {
+    //     document.write(num + " là số nguyên tố")
+    //   } else {
+    //     for (let i = 2; i < num; i++) {
+    //       if (num % i === 0) {
+    //         check = false;
+    //         break;
+    //       }
+    //     }
+    //
+    //     if (check) {
+    //       document.write(num + " là số nguyên tố")
+    //     } else {
+    //       document.write(num + " ko là số nguyên tố")
+    //     }
+    //   }
+    // }
+
+
+    let num = +prompt("Nhập vào số lượng số nguyên tố");
+    let count = 0;
+    let N = 2;
+
+    function isPrime(n) {
+      if (n < 2) {
+        return false;
+      }
+      for (let i = 2; i < n; i++) {
+        if (n % i === 0) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    while (count < num) {
+      if (isPrime(N)) {
+        document.write(N + "<br>");
+        count++;
+      }
+      N++
+    }
+  </script>
+</body>
+</html>

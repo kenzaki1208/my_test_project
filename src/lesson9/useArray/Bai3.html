@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <p id="demo"></p>
+
+  <script>
+    function switchCase(str) {
+      let newStr = '';
+      for (let i = 0; i < str.length; i++) {
+        const char = str[i];
+        if (char === char.toUpperCase()) {
+          newStr += char.toLowerCase();
+        } else {
+          newStr += char.toUpperCase();
+        }
+      }
+      return newStr;
+    }
+
+    const myString = "The Quick Brown Fox";
+    const switchedString = switchCase(myString);
+    document.getElementById("demo").innerHTML = switchedString;
+  </script>
+</body>
+</html>
