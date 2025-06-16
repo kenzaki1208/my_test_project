@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="caroGame"></p>
+    <input type="button" value="Change Value 1" onclick="changeValue('x')"/>
+    <input type="button" value="Change Value 2" onclick="changeValue('o')"/>
+
+    <script>
+        let b = document.getElementById("caroGame");
+        let board = [];
+        let data = "";
+
+        for (let i = 0; i < 5; i++) {
+            board[i] = [0, 0, 0, 0, 0];     // định dạng bản
+        }
+
+        //hàm vẽ bảng
+        function drawBoard() {
+            data= "";
+            for (let i = 0; i < 5; i++) {
+                data += "<br>";
+                for (let j = 0; j < 5; j++) {
+                    data += board[i][j] + "&nbsp;&nbsp;";
+                }
+            }
+            b.innerHTML = data;
+        }
+
+        drawBoard();
+
+        let luotChoi; // gọi lượt chơi = rỗng
+        function changeValue(turn) {
+            if (luotChoi && turn === luotChoi) { // kiểm tra lượt chơi từng người
+                alert("Phải đợi người kia đánh!");
+            } else {
+                let positionX = prompt("X: ");
+                let positionY = prompt("Y: ");
+                luotChoi = turn;
+                if ((luotChoi === 'x' && board[positionX][positionY] === 'o') ||    //kiểm tra ko đc đánh vào ô của nhau
+                    luotChoi === 'o' && board[positionX][positionY] === 'x') {
+                    alert("Không được đánh vào ô của người chơi khác");
+                    luotChoi = null;
+                } else {
+                    board[positionX][positionY] = luotChoi;       // cập nhật lại vị trí và vẽ lại bảng
+                    drawBoard();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
