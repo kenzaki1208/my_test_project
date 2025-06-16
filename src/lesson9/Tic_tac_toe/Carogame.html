@@ -49,6 +49,48 @@
                     drawBoard();
                 }
             }
+
+            for (let i = 0; i < 5; i++) {
+                for (let j = 0; j < 5; j++) {
+                    if (j < 3 && board[i][j] === 'x' && board[i][j + 1] === 'x' && board[i][j + 2] === 'x') {
+                        alert('x là người chiến thắng !');
+                        return;
+                    }
+                    else if (j < 3 && board[i][j] === 'x' && board[i + 1][j] === 'x' && board[i + 2][j] === 'x') {
+                        alert('x là người chiến thắng !');
+                        return;
+                    }
+                    else if (i < 3 && board[i][j] === 'o' && board[i][j + 1] === 'o' && board[i][j + 2] === 'o') {
+                        alert('o là người chiến thắng !');
+                        return;
+                    }
+                    else if (i < 3 && board[i][j] === 'o' && board[i + 1][j] === 'o' && board[i + 2][j] === 'o') {
+                        alert('o là người chiến thắng !');
+                        return;
+                    }
+                }
+            }
+
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 5; j++) {
+                    if (j < 3 && board[i][j] === 'x' && board[i + 1][j + 1] === 'x' && board[i + 2][j + 2] === 'x') {
+                        alert('x là người chiến thắng !');
+                        return;
+                    }
+                    else if (j < 3 && board[i][j] === 'o' && board[i + 1][j + 1] === 'o' && board[i + 2][j + 2] === 'o') {
+                        alert('o là người chiến thắng !');
+                        return;
+                    }
+                    else if (i >= 2 && board[i][j] === 'x' && board[i + 1][j - 1] === 'x' && board[i + 2][j - 2] === 'x') {
+                        alert('x là người chiến thắng !');
+                        return;
+                    }
+                    else if (i >= 2 && board[i][j] === 'o' && board[i + 1][j - 1] === 'o' && board[i + 2][j - 2] === 'o') {
+                        alert('o là người chiến thắng !');
+                        return;
+                    }
+                }
+            }
         }
     </script>
 </body>
