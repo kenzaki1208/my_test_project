@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="demo"></p>
+
+
+    <script>
+        let numbers = [11, 2, 36, 49, 5, 16, 27, 8, 99, 10]
+        let largestNumbers = numbers.filter(myfunction);
+
+        document.getElementById("demo").innerHTML = "Những số lớn hơn 10 là: " + largestNumbers;
+
+        function myfunction(value) {
+            return value > 10;
+        }
+    </script>
+</body>
+</html>
