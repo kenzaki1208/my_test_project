@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+  <script>
+    let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let findNumber = 7;
+
+    function numberExist(array, findNumber) {
+      for (let i = 0; i < array.length; i++) {
+        if (array[i] === findNumber) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    if (numberExist(array, findNumber)) {
+      let removeNumber = 7;
+      let newArray = array.filter(item => item !== removeNumber);
+      newArray.push(0);
+      document.write("7 is in the array but it was delete and the new array is: " + newArray.join(", "));
+    } else {
+      document.write("7 is not in the array");
+    }
+  </script>
+</body>
+</html>
