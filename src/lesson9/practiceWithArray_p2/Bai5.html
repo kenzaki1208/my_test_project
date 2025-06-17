@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        let a = "Xin chào, tôi là Erik, tôi năm nay 23 tuổi, tôi sống ở 123 đường Võ Chí Công";
+        let b = "Xin chào, tôi là Erika, tôi năm nay 24 tuổi, tôi sống ở 123 đường Võ Chí Công";
+
+        function arrayEqual (a, b) {
+            if (a.length !== b.length) {
+                return false;
+            }
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] !== b[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        document.write("Mảng a: " + a + "<br>");
+        document.write("Mảng b: " + b + "<br>");
+        document.write("2 mảng có giống nhau ko ? " + arrayEqual(a, b) + " => 2 mảng ko giống nhau");
+    </script>
+</body>
+</html>

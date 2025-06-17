@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <script>
+        let introduce = ["Xin chào, tôi-là-Erik, tôi-năm-nay-23-tuổi, tôi-sống-ở-123-đường-Võ-Chí-Công"];
+        document.write("Mảng đã ban đầu: " + "<br>");
+        document.write(introduce + "<br>" + "<br>");
+        document.write("Mảng đã sửa: " + "<br>");
+
+        let change = 0;
+        let oldWord = "-";
+        let newWord = "_";
+
+        let parts = introduce[change].split(oldWord);
+        introduce[change] = parts.join(newWord);
+
+        document.write(introduce)
+    </script>
+</body>
+</html>
