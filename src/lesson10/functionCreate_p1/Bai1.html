@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form>
+    <label>
+      <input type="text" id="answer" name="answer" placeholder="Enter something..."/>
+    </label>
+    <label>
+      <input type="submit" name="send" id="send" value="Send"/>
+    </label>
+  </form>
+
+  <script>
+    window.onload = function() {
+      document.getElementById("send").onclick = function(e) {
+        alert(document.getElementById("answer").value);
+        return false;
+      }
+    }
+  </script>
+</body>
+</html>
