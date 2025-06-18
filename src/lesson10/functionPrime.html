@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+  <script>
+    function isPrime (number) {
+      if (number < 1) { // khi number < 1 tự động trả về false end chương trình
+        return false;
+      }
+
+      for (let i = 2; i <= Math.sqrt(number); i++) { // vì số nguyên tố nên phải bắt đầu từ 2
+        if (number % i === 0) {                      // số nguyên tố chỉ chia hết cho 1 và chính nó
+          return false;
+        }
+      }
+      return true;
+    }
+
+    let arr = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+    let checkArr = isPrime(arr);
+
+    document.write("Mảng : " + arr + "<br>");
+    document.write("Mảng dãy số = " + checkArr  + "<br>" + " => " + " Trong mảng trên đều là số nguyên tố !" + "<br>");
+  </script>
+</body>
+</html>
