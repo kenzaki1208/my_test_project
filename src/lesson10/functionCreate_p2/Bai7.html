@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <p id="demo"></p>
+
+  <script>
+    function switchNumber(a, b) {
+      if (isNaN(a) || isNaN(b)) {
+        alert("Vui lòng nhập số !");
+        return;
+      }
+
+      let position = a;
+      a = b;
+      b = position;
+      return [a, b]; // Trả về mảng chứa giá trị đã đổi chỗ
+    }
+
+    let number1 = parseInt(prompt("Nhập số thứ nhất: "));
+    let number2 = parseInt(prompt("Nhập số thứ hai: "));
+    let result = switchNumber(number1, number2);
+
+    document.getElementById("demo").innerHTML = number1 + " và " + number2 + " => " + result.join(" và ");
+  </script>
+</body>
+</html>

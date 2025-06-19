@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <script>
+        function factorial(number) {
+            if (number < 0) {
+                return false;
+            } else if (number === 0) {
+                return false;
+            } else {
+                let fact = 1;
+                for (let i = 1; i <= number; i++) {
+                    fact *= i;
+                }
+                return fact;
+            }
+        }
+
+        let num = factorial(parseInt(prompt("Nhập vào 1 số bất kì")));
+
+        document.write("Giai thừa của số bạn vừa nhập là: " + num);
+    </script>
+</body>
+</html>

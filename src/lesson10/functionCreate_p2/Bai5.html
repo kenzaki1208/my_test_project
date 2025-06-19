@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        function checkMin(a, b, c) {
+            let min = a;
+
+            // nên sử dụng 2 if để có thể kiểm tra cả 2 giá trị
+            // nếu sử dụng if và else if thì sẽ chỉ kiểm tra đc 1 giá trị ko kiểm tra đc giá trị còn lại
+            // ví dụ: a = 10, b = 7, c = 3 thì sẽ chỉ kiểm tra đc số nhỏ nhất là 7 và bỏ qua 3
+            if (b < min) {
+                min = b;
+            }
+            if (c < min) {
+                min = c;
+            }
+
+            return min;
+        }
+
+        let num1 = parseInt(prompt("Nhập vào số thứ nhất: "));
+        let num2 = parseInt(prompt("Nhập vào số thứ hai: "));
+        let num3 = parseInt(prompt("Nhập vào số thứ ba: "));
+        let minNumbers = checkMin(num1, num2, num3);
+        document.write("Số nhỏ nhất trong 3 số bạn vừa nhập là: " + minNumbers);
+    </script>
+</body>
+</html>

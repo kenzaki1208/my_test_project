@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <p id="result"></p>
+
+  <script>
+    function reverseArray(arr) {
+      return arr.reverse().join(",");
+    }
+
+    let numbers = [3, 5, 8, 15, 27, 99];
+    document.getElementById("result").innerHTML = numbers + " => " + reverseArray(numbers);
+  </script>
+</body>
+</html>

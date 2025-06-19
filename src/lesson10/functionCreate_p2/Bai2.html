@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+  <script>
+    function circleArea(number) {
+      if (number <= 1) {
+        return number;
+      }
+
+      return 3.14 * number * number;
+    }
+
+    function Circumference(number) {
+      if (number <= 1) {
+        return number;
+      }
+
+      return 2 * 3.14 * number;
+    }
+
+    let a = circleArea(parseInt(prompt("Nhập bán kính diện tích hình tròn: ")));
+    let b = Circumference(parseInt(prompt("Nhập bán kính chu vi hình tròn: ")));
+
+    document.write("Diện tích hình tròn là: " + a + "<br>");
+    document.write("Chu vi hình tròn là: " + b + "<br>");
+  </script>
+</body>
+</html>

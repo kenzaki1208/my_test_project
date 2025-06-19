@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <script>
+        let strings = ['h', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd'];
+        let checkArr = prompt("Nhập vào 1 kí tự bất kì: ");
+
+        function checkString(str, array) {
+            let count = 0;
+
+            for (let i = 0; i < str.length; i++) {
+                if (str[i] === array) { // == chỉ trả về true false còn === nghiêm ngặt hơn 10 = 10: true, 10!="10":false
+                    count++;
+                }
+                if (i === str.length - 1 && count === 0 && str[i] !== array) { // sau khi đã đếm kiểm tra trong mảng
+                    return -1;                          //ko có kí tự nào trùng và count vẫn bằng 0 thì sẽ return về -1
+                }
+            }
+
+            return count;
+        }
+
+        document.write("Số lần lặp lại của kí tự " + checkArr + " bạn vừa nhập là: " + checkString(strings, checkArr))
+    </script>
+</body>
+</html>
