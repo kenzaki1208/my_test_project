@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="App.css">
+</head>
+<body>
+<h1>Display All Products</h1>
+        <form id="addProducts">
+            <label><input type="text" id="inputProduct" name="productName" placeholder="Enter a product name"/></label>
+            <button type="button" onclick="addProduct()">Add</button>
+        </form>
+
+        <br>
+
+        <form>
+            <table id="productsTable">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th></th>
+                        <th><span id="countProduct" onload="displayProducts()">3 products</span></th>
+                    </tr>
+                </thead>
+                <tbody id="productList">
+                <tr>
+                    <td>Sony Xperia</td>
+                    <td><button type="button">Edit</button></td>
+                    <td><button type="button">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>Samsung Galaxy</td>
+                    <td><button type="button">Edit</button></td>
+                    <td><button type="button">Delete</button></td>
+                </tr>
+                <tr>
+                    <td>Nokia 6</td>
+                    <td><button type="button">Edit</button></td>
+                    <td><button type="button">Delete</button></td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+
+
+    <script src="App.js"></script>
+</body>
+</html>
