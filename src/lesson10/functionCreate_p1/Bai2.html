@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form>
+        <label>Nhập vào 1 số bất kì</label>
+        <input type="number" id="inputNumber" placeholder="Enter a number"
+            oninput="printNumber(this.value)"
+            onchange="printNumber(this.value)"
+        />
+        <p>Số hiện tại bạn vừa nhập: <span id="afterChange"></span></p>
+    </form>
+
+    <script>
+        function printNumber(number) {
+            document.getElementById("afterChange").innerHTML = changeNumber(number);
+        }
+        function changeNumber(num) {
+            num = parseInt(num);
+            return ++num; // tăng xong mới trả về (num++ là trả về sau khi tăng)
+        }
+    </script>
+</body>
+</html>

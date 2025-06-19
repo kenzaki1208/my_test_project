@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <script>
+        let numbers = [1, 3, 5, 7, 73, 31, 43, 57, 67, 91];
+        let bigNumber = 0;
+
+        for (let i = 0; i < numbers.length; i++) {
+            if (numbers[i] > bigNumber) {
+                bigNumber = numbers[i];
+            }
+        }
+        document.write("Số lớn nhất trong mảng là: " + bigNumber);
+        document.write("<br>");
+
+        let sum = 0;
+
+        for (let i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        document.write("Giá trị trung bình của mảng là: " + sum/numbers.length);
+        console.log(numbers.length)
+    </script>
+</body>
+</html>

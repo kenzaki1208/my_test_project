@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+  <script>
+    function countNumber(str) {
+      debugger;
+      const regex = /[0-9]/g;
+      const number = str.match(regex);
+
+      if (number) {
+        return number.length;
+      } else {
+        return 0;
+      }
+    }
+
+    let myString = "Xin chào, tôi là Erik, tôi năm nay 23 tuổi, tôi sống ở 123 đường Võ Chí Công";
+    let quantityNumber = countNumber(myString);
+    document.write(myString + "<br>");
+    document.write("Số lượng số trong chuỗi là: " + quantityNumber);
+  </script>
+</body>
+</html>

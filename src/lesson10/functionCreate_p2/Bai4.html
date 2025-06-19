@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        function checkNumber(value) {
+            return /^\d+$/.test(value); // statement
+        }
+
+        let inputValue = prompt("Nhập vào chữ hoặc 1 số bất kì: ");
+        let result = checkNumber(inputValue);
+        document.write(result + " => " + (result ? "Bạn vừa nhập số !" : "Bạn vừa nhập chữ !"));
+    </script>
+</body>
+</html>

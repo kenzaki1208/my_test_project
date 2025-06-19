@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <script>
+        // internal: nhúng trực tiếp vào tệp html
+        // external: nhúng 1 file .js vào
+        // inline: nhúng trực tiếp vào thẻ html
+
+        // var, let, const (scope: phạm vi)
+
+        // cách 1: array literal
+        // const cars = ["BMW", "Audi", "Bently"];
+        // const cars = [];
+        // cars[10] = 'VinFast';
+        // cars[-1] = 'Mazda'; // property
+        // cars[-2] = 'Huynh dai'; // property
+        // cars['name'] = 'Volvo'; // property
+        // console.log(cars);
+        // console.log(cars.length);
+
+        // for (let i = 0; i < cars.length; i++) {
+        //     console.log(cars[i]);
+        // }
+
+        // for (const item in cars) {
+        //     console.log(cars[item]);
+        // }
+
+        // cars.push("Vios");
+        // cars.push("Huyndai");
+        // cars.pop();
+        // cars.pop();
+        // cars.pop();
+        // cars.pop();
+        // cars.push(1, 9, 99, 33, 3, 4, 44)
+        // cars.sort(function (a, b) {
+        //     // return a - b; // trả về 0, +
+        //     return b - a; // trả về -, 0, +
+        // });
+        // console.log(cars);
+        // const deleteCar = cars.pop();
+        // console.log("Phần tử bị xóa là: " + deleteCar);
+        // console.log(cars.pop());
+        // console.log(cars.join(" "));
+        // console.log(cars.reverse().join(" "));
+
+        // const cars = [99]
+        // console.log('Độ dài của mảng cars là: ' , cars.length)
+        // console.log(cars[0])
+        //
+        // // cách 2: từ khóa new
+        // const fruits = new Array("10");
+        // console.log('Độ dài của mảng fruits là: ' , fruits.length);
+        // console.log(fruits[0]);
+
+        // const fruits = new Array("Apple", "Meomeo", "Orange", "Kiwi", "Mango");
+        // console.log(fruits[0]);
+
+        //n: fruits.length
+        // console.log(fruits[fruits.length - 1]);
+        // console.log(Math.floor(fruits.length / 2));
+        // console.log(fruits[Math.floor(fruits.length / 2)]);
+
+        // const firstElement = fruits[0];
+        // const midElement = fruits[Math.floor(fruits.length / 2)];
+        // const lastElement = fruits[fruits.length - 1];
+        //
+        // console.log(firstElement, midElement, lastElement);
+
+        // duyệt để lấy ra key ( thuộc tính ), chỉ số
+        // for (const item in fruits) {
+        //     console.log(fruits[item]);
+        // }
+
+        // for ( let i = fruits.length - 1; i >= 0; i--) {
+        //     console.log(fruits[i]);
+        // }
+
+        // const newCars = cars.concat([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+        // console.log(newCars);
+
+        // const students = [];
+        //
+        // students.push("Lịch");
+        // students.push("Quân");
+        // students.push("Trung");
+        // // students.unshift("Trung");
+        // console.log(students);
+        // console.log(students.shift());
+        // // map(), reduce(), filter()
+
+        const numbers = [1, 2, 3, 4, 5];
+        const firstNumbers = numbers[0];
+        const secondNumbers = numbers[1];
+        const thirdNumbers = numbers[2];
+        const fourthNumbers = numbers[3];
+
+        // let sum = 0;
+        // for (let i = 0; i < numbers.length; i++) {
+        //     sum += numbers[i];
+        // }
+        // console.log(sum);
+
+        // const sum = numbers.reduce((previousValue, currentValue) => previousValue + currentValue);
+        // console.log(sum)
+
+        // const filterNumbers = numbers.filter(function (item) {
+        //     return item >= 4;
+        // });
+        // console.log(filterNumbers)
+
+        // for...in; for...each; for...of
+        numbers.forEach(function (item) {
+            console.log(item);
+        })
+    </script>
+</body>
+</html>
