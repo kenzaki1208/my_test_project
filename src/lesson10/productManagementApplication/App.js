@@ -37,7 +37,7 @@ function addProduct() {
     const productName = document.getElementById("inputProduct").value;
     if (productName) {                  //kiểm tra productName ko rỗng
         myList.push(productName);       // thêm productName vào mảng mylist
-        document.getElementById("inputProduct").value = "";     //xóa nội dung trong input
+        // document.getElementById("inputProduct").value = "";     //xóa nội dung trong input
         displayProducts();              // gọi hàm cập nhật giao diện
     }
 }
