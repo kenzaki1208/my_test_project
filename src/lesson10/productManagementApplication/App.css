@@ -7,7 +7,7 @@ html, body {
 }
 
 body {
-    width: 60%;
+    width: 40%;
     height: 80%;
     margin: 0 auto;
     padding: 20px;
@@ -61,6 +61,7 @@ button {
     color: white;
     border: none;
     padding: 5px 10px;
+    border-radius: 4px;
 }
 
 button:hover {
@@ -68,5 +69,9 @@ button:hover {
 }
 
 input {
-    width: 90%;
+    width: 87%;
+}
+
+span {
+    color: lightcoral;
 }
