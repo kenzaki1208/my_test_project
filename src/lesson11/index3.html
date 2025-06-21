@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="600px" height="400px" style="border:1px solid #d3d3d3;"></canvas>
+    <div>
+        <label for="widthInput">Chiều rộng (width):</label>
+        <input type="number" id="widthInput" min="1"> <br>
+        <label for="heightInput">Chiều cao (height):</label>
+        <input type="number" id="heightInput" min="1"><br>
+        <button id="confirmButton" onclick="updateRectangle()">Xác nhận thay đổi</button><br>
+        <p id="result"></p>
+    </div>
+
+
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const context = canvas.getContext('2d');
+        const Rectangle = [];
+        class recTangle {
+            constructor(x, y, width, height, color) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.color = color;
+            }
+
+            setWidth(newWidth) {
+                this.width = newWidth;
+            }
+
+            setHeight(newHeight) {
+                this.height = newHeight;
+            }
+
+            draw() {
+                context.beginPath();
+                context.rect(this.x, this.y, this.width, this.height);
+                context.fillStyle = this.color;
+                context.fill();
+                context.closePath();
+            }
+
+            getAreaRectangle() {
+                return this.width * this.height;
+            }
+
+            getPerimeterRectangle() {
+                return 2 * (this.width + this.height);
+            }
+        }
+
+        // const myRectangle = new recTangle(50, 50, 150, 100, 'blue');
+        // myRectangle.draw();
+
+
+        let x = parseInt(prompt('Nhập tọa độ x:'));
+        let y = parseInt(prompt('Nhập tọa độ y:'));
+        let width = parseInt(prompt('Nhập chiều rộng:'));
+        let height = parseInt(prompt('Nhập chiều cao:'));
+        let color = prompt('Nhập màu :', 'blue');
+
+        const myRectangle = new recTangle(x, y, width, height, color);
+        myRectangle.draw();
+
+        document.getElementById("widthInput").addEventListener("change", updateRectangle);
+        document.getElementById("heightInput").addEventListener("change", updateRectangle);
+        document.getElementById("confirmButton").addEventListener("click", updateRectangle);
+
+        function updateRectangle() {
+            const newWidth = parseInt(document.getElementById("widthInput").value);
+            const newHeight = parseInt(document.getElementById("heightInput").value);
+
+            if (!isNaN(newWidth) && newWidth > 0) {
+                myRectangle.setWidth(newWidth);
+            }
+            if (!isNaN(newHeight) && newHeight > 0) {
+                myRectangle.setHeight(newHeight);
+            }
+
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            myRectangle.draw();
+            updateResult();
+        }
+
+        function updateResult() {
+            document.getElementById("result").innerHTML = "Diện tích hình chữ nhật: " + myRectangle.getAreaRectangle() + "<br>"
+                + "Chu vi hình chữ nhật: " + myRectangle.getPerimeterRectangle();
+        }
+
+        document.getElementById("result").innerHTML =
+            "Diện tích hình chữ nhật: " + myRectangle.getAreaRectangle() + "<br>"
+                + "Chu vi hình chữ nhật: " + myRectangle.getPerimeterRectangle();
+    </script>
+</body>
+</html>
