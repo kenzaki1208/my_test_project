@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        class Temperature {
+            constructor(Celcius) {
+                this.celcius = null;
+                this.setCelsius(Celcius);
+            }
+
+            setCelsius(value) {
+                if (typeof value !== 'number') {
+                    alert("Nhiệt độ phải đc nhập bằng số !");
+                }
+                if (value < -273) {
+                    alert("Nhiệt độ ko thể nhỏ hơn 273°C");
+                }
+                this.celcius = value;
+            }
+
+            getCelsius() {
+                return this.celcius;
+            }
+
+            toFahrenheit() {
+                return this.celcius * 9/5 + 32;
+            }
+
+            toKelvin() {
+                return this.celcius + 273;
+            }
+        }
+
+        const temp = new Temperature(parseInt(prompt("Nhập nhiệt độ °C bạn muốn chuyển đổi: ")));
+        document.write("Nhiệt độ °C bạn vừa nhập là: " + temp.getCelsius() + "<br>")
+        document.write("Từ °C chuyển sang °F là: " + temp.toFahrenheit() + "<br>");
+        document.write("Từ °C chuyển sang °K là: " + temp.toKelvin());
+
+    </script>
+</body>
+</html>
