@@ -107,56 +107,50 @@
 
             this.check = function (x, y) {
                 var cell = this.cell[x][y];
-                var count = 1;
-                var i = 1;
-                while ((y + i < this.cols) && this.cell[x][y + i] === cell.value) {
-                    count++;
-                    i++;
-                }
-                this.endGame(count);
+                var directions = [
+                    { dx: 0, dy: 1 },  // ngang
+                    { dx: 1, dy: 0 },  // dọc
+                    { dx: 1, dy: 1 },  // chéo chính (\)
+                    { dx: 1, dy: -1 }  // chéo phụ (/)
+                ];
 
-                var count = 1;
-                var i = 1;
-                var j = 1;
-                while ((y + i < this.cols) && (x + i < this.rows) && this.cell[x + i][y + j].value === cell.value) {
-                    count++;
-                    i++;
-                    j++;
+                for (var dir of directions) {
+                    var count = 1; // Bắt đầu với ô hiện tại
+                    // Kiểm tra một hướng
+                    var i = 1;
+                    while (true) {
+                        var nx = x + i * dir.dx;
+                        var ny = y + i * dir.dy;
+                        if (nx >= 0 && nx < this.rows && ny >= 0 && ny < this.cols && this.cell[nx][ny].value === cell.value) {
+                            count++;
+                            i++;
+                        } else {
+                            break;
+                        }
+                    }
+                    // Kiểm tra hướng đối diện
+                    i = 1;
+                    while (true) {
+                        var nx = x - i * dir.dx;
+                        var ny = y - i * dir.dy;
+                        if (nx >= 0 && nx < this.rows && ny >= 0 && ny < this.cols && this.cell[nx][ny].value === cell.value) {
+                            count++;
+                            i++;
+                        } else {
+                            break;
+                        }
+                    }
+                    // Nếu tổng số ô liên tiếp >= 5, kết thúc trò chơi
+                    if (count >= 5) {
+                        this.endGame();
+                        return;
+                    }
                 }
-
-                var i = 1;
-                var j = 1;
-                while ((x - i >= 0) && (y - j >= 0) && this.cell[x - i][y - j].value === cell.value) {
-                    count++;
-                    i++;
-                    j++;
-                }
-                this.endGame(count);
-
-                var count = 1;
-                var i = 1;
-                var j = 1;
-                while ((y + j < this.cols) && (x - i >= 0) && this.cell[x - i][y + j].value === cell.value) {
-                    count++;
-                    i++;
-                    j++;
-                }
-
-                var i = 1;
-                var j = 1;
-                while ((y - j >= 0) && (x + i < this.rows) && this.cell[x + i][y - j].value === cell.value) {
-                    count++;
-                    i++;
-                    j++;
-                }
-                this.endGame(count);
-            }
+            };
 
             this.endGame = function (count) {
-                if(count >= 5){
-                    this.isOver = true;
-                    alert("You won!!!");
-                }
+                this.isOver = true;
+                alert("You won!!!");
             };
         }
 
