@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <script>
+        class Rat {
+            #name;
+            #weight;
+            #speed;
+            #status;
+
+            constructor(name, weight, speed, status) {
+                this.#name = name;
+                this.#weight = weight;
+                this.#speed = speed;
+                this.#status = status;
+            }
+
+            action() {
+                alert("chít chít")
+            }
+
+            getName() {
+                return this.#name;
+            }
+
+            setName(name) {
+                this.#name = name;
+            }
+
+            getWeight() {
+                return this.#weight;
+            }
+
+            setWeight(weight) {
+                this.#weight = weight;
+            }
+
+            getSpeed() {
+                return this.#speed;
+            }
+
+            setSpeed(speed) {
+                this.#speed = speed;
+            }
+
+            getStatus() {
+                return this.#status;
+            }
+
+            setStatus(status) {
+                this.#status = status;
+            }
+        }
+
+        class Cat {
+            #name;
+            #weight;
+            #maxSpeed;
+            constructor(name, weight, maxSpeed) {
+                this.#name = name;
+                this.#weight = weight;
+                this.#maxSpeed = maxSpeed;
+            }
+
+            action() {
+                alert("Meo Meo")
+            }
+
+            getName() {
+                return this.#name;
+            }
+
+            setName(name) {
+                this.#name = name;
+            }
+
+            getWeight() {
+                return this.#weight;
+            }
+
+            setWeight(weight) {
+                this.#weight = weight;
+            }
+
+            getMaxSpeed() {
+                return this.#maxSpeed;
+            }
+
+            setMaxSpeed(speed) {
+                this.#maxSpeed = speed;
+            }
+
+            catchMouse(rat) {
+                if (this.getMaxSpeed() > rat.getSpeed()) {
+                    alert("Mèo đã bắt được chuột");
+                    return true;
+                } else if (this.getMaxSpeed() < rat.getSpeed()) {
+                    alert("Con chuột đã chạy mất");
+                    return false;
+                } else {
+                    alert("Tốc độ ngang nhau, ko đuổi kịp")
+                    return false;
+                }
+            }
+
+            eatMouse(rat) {
+                if (rat.getStatus() === "live") {
+                    alert("Mèo đang ăn chuột")
+                    this.setWeight(this.getWeight()  + 1);
+                    rat.setStatus("dead");
+                    alert(`Mèo đã ăn no, cân nặng: ${this.getWeight()}`)
+                    return true;
+                } else if (rat.getStatus() !== "live") {
+                    alert("Con chuột đã chết");
+                    return false
+                } else if (this.catchMouse(rat) === false) {
+                    alert("Con chuột đã chạy mất ko ăn được");
+                    return false;
+                }
+            }
+        }
+
+        let rat = new Rat("Jerry", 50, 100, "live");
+        let cat = new Cat("Tom", 200, 400);
+
+        rat.action();
+        cat.action();
+
+        if (cat.catchMouse(rat)) {
+            cat.eatMouse(rat);
+        }
+    </script>
+</body>
+</html>
