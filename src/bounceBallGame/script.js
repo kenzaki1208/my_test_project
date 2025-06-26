@@ -79,7 +79,9 @@ function update() {
     context.fillStyle = "white";
     ball.x += ball.velocityX;
     ball.y += ball.velocityY;
-    context.fillRect(ball.x, ball.y, ball.width, ball.height);
+    context.beginPath();
+    context.arc(ball.x + ball.width / 2, ball.y + ball.height / 2, ball.width / 2, 0, Math.PI * 2);
+    context.fill();
 
     //bounce off walls
     if (ball.y < 0) {
