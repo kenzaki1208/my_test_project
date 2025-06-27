@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <canvas>Trinh duyet khong ho tro Canvas</canvas>
+
+
+    <script>
+        const canvas = document.querySelector("canvas");
+        canvas.style.border = "1px solid black";
+        const ctx = canvas.getContext("2d");
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        let score = 0;
+
+        // Car class to handle car properties and behavior
+        class Car {
+            constructor(x, y, width, height, imageSrc) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.image = new Image();
+                this.image.src = imageSrc || "Car_Green_Front.svg";
+                this.speed = 2;
+                this.direction = 180; // Default direction: facing up
+            }
+
+            draw() {
+                if (this.image.complete) {
+                    ctx.save();
+                    ctx.translate(this.x + this.width / 2, this.y + this.height / 2);
+                    ctx.rotate((this.direction * Math.PI) / 180);
+                    ctx.drawImage(
+                        this.image,
+                        -this.width / 2,
+                        -this.height / 2,
+                        this.width,
+                        this.height
+                    );
+                    ctx.restore();
+                }
+            }
+
+            moveLeft() {
+                this.direction = 90; // Face left
+                this.x -= 10;
+                if (this.x < 0) this.x = 0;
+            }
+
+            moveRight() {
+                this.direction = 270; // Face right
+                this.x += 10;
+                if (this.x + this.width > canvas.width) this.x = canvas.width - this.width;
+            }
+
+            moveUp() {
+                this.direction = 180; // Face up
+                this.y -= 10;
+                if (this.y < 0) this.y = 0;
+            }
+
+            moveDown() {
+                this.direction = 0; // Face down
+                this.y += 10;
+                if (this.y + this.height > canvas.height) this.y = canvas.height - this.height;
+            }
+
+            autoMove() {
+                switch (this.direction) {
+                    case 180: // Move up
+                        this.y -= this.speed;
+                        if (this.y < 0) this.y = canvas.height - this.height;
+                        break;
+                    case 270: // Move right
+                        this.x += this.speed;
+                        if (this.x > canvas.width) this.x = -this.width;
+                        break;
+                    case 0: // Move down
+                        this.y += this.speed;
+                        if (this.y > canvas.height) this.y = -this.height;
+                        break;
+                    case 90: // Move left
+                        this.x -= this.speed;
+                        if (this.x < 0) this.x = canvas.width;
+                        break;
+                }
+            }
+
+            checkCollision(obj) {
+                return (
+                    this.x < obj.x + obj.width &&
+                    this.x + this.width > obj.x &&
+                    this.y < obj.y + obj.height &&
+                    this.y + this.height > obj.y
+                );
+            }
+
+            stop() {
+                this.speed = 0; // Stop the car
+            }
+        }
+
+        // Obstacle class to handle obstacle properties and behavior
+        class Obstacle {
+            constructor(x, y, width, height, imageSrc) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.image = new Image();
+                this.image.src = imageSrc || "PixelHarvester.svg";
+            }
+
+            draw() {
+                if (this.image.complete) {
+                    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+                }
+            }
+        }
+
+        // Heart class to handle collectible item properties and behavior
+        class Heart {
+            constructor(x, y, width, height, imageSrc) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.height = height;
+                this.image = new Image();
+                this.image.src = imageSrc || "Heart.svg";
+                this.collected = false; // Track if the heart has been collected
+            }
+
+            draw() {
+                if (this.image.complete) {
+                    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+                }
+            }
+
+            resetPosition() {
+                this.x = Math.random() * (canvas.width - this.width);
+                this.y = Math.random() * (canvas.height - this.height);
+                this.collected = false; // Reset collected status
+            }
+        }
+
+        const car = new Car(100, 100, 50, 80, "Car_Green_Front.svg");
+        const heart = new Heart(100, 100, 40, 40, "Heart.svg");
+        const obstacle = new Obstacle(200, 200, 90, 50, "PixelHarvester.svg");
+
+        // Handle key presses for car movement
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "ArrowLeft") {
+                car.moveLeft();
+            }
+            if (event.key === "ArrowRight") {
+                car.moveRight();
+            }
+            if (event.key === "ArrowUp") {
+                car.moveUp();
+            }
+            if (event.key === "ArrowDown") {
+                car.moveDown();
+            }
+            if (event.key === "Control") {
+                car.speed += 1; // Increase speed
+            }
+        });
+
+        // Main animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Display score
+            ctx.font = "20px Arial";
+            ctx.fillStyle = "black";
+            ctx.fillText("Score: " + score, 10, 20);
+
+            car.draw();
+            obstacle.draw();
+            heart.draw();
+            car.autoMove();
+
+            if (car.checkCollision(obstacle)) {
+                console.log("Collision detected!");
+                car.stop();
+                ctx.font = "30px Arial";
+                ctx.fillStyle = "red";
+                ctx.fillText("Game Over!", canvas.width / 2 - 70, canvas.height / 2);
+                return;
+            }
+
+            if (car.checkCollision(heart) && !heart.collected) {
+                score++;
+                heart.collected = true;
+                heart.resetPosition();
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
