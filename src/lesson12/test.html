@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    <script>
+        //khai báo lớp car: function constructor
+        // function Car(name, model, weight, color) {
+        //     this.name = name;
+        //     this.model = model;
+        //     this.weight = weight;
+        //     this.color = color;
+        //
+        //     this.start = function () {
+        //
+        //     }
+        //
+        //     this.drive = function () {
+        //
+        //     }
+        //
+        //     this.stop = function () {
+        //
+        //     }
+        //
+        //     this.brake = function () {
+        //
+        //     }
+        //
+        //     this.toString = function () {
+        //         // template literals
+        //         return `Name: ${this.name}, Model: ${this.model}`;
+        //     }
+        // }
+
+        //Single: function expression
+        // const car = function () {
+        //     //properties;
+        //     //methods
+        // }
+
+        class Car {
+            #name;
+            #model;
+            #weight;
+            #color;
+
+            constructor(name, model, weight, color) {
+                this.#name = name;
+                this.#model = model;
+                this.#weight = weight;
+                this.#color = color;
+            }
+
+            start() {}
+
+            toString() {
+                return `Name: ${this.#name}, Model: ${this.#model}`;
+            }
+
+            get name() {
+                return this.#name;
+            }
+        }
+
+        // let mercedes = {
+        //     name: 'Mercedes',
+        //     model: 'C200',
+        //     weight: 1000,
+        //     color: 'White',
+        // }
+
+        // dot (.), []
+        // console.log(mercedes['name']);
+        // console.log(mercedes['model']);
+
+        //khởi tạo đối tượng lớp
+        // const mercedes = new Car("Mercedes", "C200", 1000, "White");
+        const bmw = new Car("BMW", "X6", 950, "Black");
+        const vinFast = new Car("VinFast", "VF9", 4000, "White");
+        // console.log(mercedes.toString());
+        // console.log(bmw.toString());
+        // console.log(vinFast.toString());
+
+        // function sayHello() {
+        //     return "Hello";
+        // }
+        //
+        // console.log(typeof sayHello);
+        // console.log(mercedes.toString());
+        // console.log(mercedes.name);
+
+        // const student = {
+        //     firstName: "Anh",
+        //     lastName: "Nguyen",
+        //     dateOfBirth: "2019-06-15",
+        //     isMarried: false,
+        // }
+
+        // const name = "Name";
+        // console.log(student["firstName" + name]);
+        // console.log(student["lastName" + name]);
+        // console.log(student.'first' + name);
+        // console.log(student.'last' + name);
+
+        function Apple(type) {
+            this.type = type;
+            this.color = "Gold";
+
+            this.getInfo = function() {
+                return `Type: ${this.type}, Color: ${this.color}`;
+            }
+
+            this.setType = function(type) {
+                this.type = type;
+            }
+
+            this.setColor = function(color) {
+                this.color = color;
+            }
+        }
+
+        const macbookAirM4 = new Apple("Air M4");
+        // macbookAirM4.setColor("Blue");
+        // macbookAirM4.setType("Macbook Pro M4");
+
+        macbookAirM4.setType("Macbook Mini M4");
+        macbookAirM4.setColor("White");
+
+        console.log(macbookAirM4.getInfo());
+
+
+        console.log(3.141519);
+        console.log(Math.ceil(3.141519));
+        console.log(Math.round(3.141519));
+        console.log((3.141519).toFixed(2));
+        console.log(1_000_000 + " đ ");
+        const vat = 0.1;
+        const discount = 0.1;
+        const price = 1_000_000;
+        document.write("Giá sản phẩm: <del>" + formatCurrency(price) + "</del><br>");
+        document.write("Giá khuyến mại: " + formatCurrency(price - (price * discount)) + "<br>");
+
+        function formatCurrency(number) {
+            return new Intl.NumberFormat("vi-VN", {style: "currency", currency: 'VNĐ'}.format(number));
+        }
+    </script>
+</body>
+</html>

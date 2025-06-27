@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="result"></div>
+    <button onclick="phoneA.chargeBattery()">Xiaomi Redmi Note 12</button>
+    <button onclick="phoneB.chargeBattery()">Samsung Galaxy Ultra 12</button>
+
+    <script>
+        class Mobile {
+            constructor(name) {
+                this.name = name;
+                this.battery = 100;
+                this.isOn = false;
+                this.draftMessage = "";
+                this.inbox = [];
+                this.sentMessage = [];
+            }
+
+            turnOn() {
+                if (!this.isOn) {
+                    this.isOn = true;
+                    logToResult(`${this.name} đã bật`);
+                }
+            }
+
+            turnOff() {
+                if (this.isOn) {
+                    this.isOn = false;
+                    logToResult(`${this.name} đã tắt`);
+                }
+            }
+
+            checkStatus() {
+                logToResult(`${this.name} - Trạng thái: ${this.isOn ? "Bật" : "Tắt"}, Pin: ${this.battery}%`);
+            }
+
+            chargeBattery() {
+                this.battery = 100;
+                logToResult(`${this.name} đã được sạc đầy`);
+            }
+
+            useBattery() {
+                if (!this.isOn) {
+                    logToResult(`${this.name} đang tắt. Ko thể dùng chức năng này`);
+                    return false;
+                }
+                if (this.battery <= 0) {
+                    logToResult(`${this.name} hết pin`);
+                    return false;
+                }
+                this.battery--;
+                return true;
+            }
+
+            composeMessage(message) {
+                if (!this.useBattery()) return;
+                this.draftMessage = message;
+                logToResult(`${this.name} đang soạn: "${message}"`);
+            }
+
+            sendMessage(receiver) {
+                if (!this.useBattery()) return;
+                if (this.draftMessage === "") {
+                    logToResult("Không có tin nhắn để gửi");
+                }
+                receiver.receiveMessage(this.draftMessage, this.name);
+                this.sentMessage.push(this.draftMessage);
+                logToResult(`${this.name} đã gửi tin: "${this.draftMessage}" tới ${receiver.name}`);
+                this.draftMessage = "";
+            }
+
+            receiveMessage(message, senderName) {
+                if (!this.useBattery()) return;
+                this.inbox.push(`Từ ${senderName}: ${message}`);
+            }
+
+            viewInbox() {
+                if (!this.useBattery()) return;
+                logToResult(`${this.name} - Hộp thư đến: `);
+                this.inbox.forEach((msg, i) => logToResult(`${i + 1}. ${msg}`));;
+            }
+
+            viewSentMessage() {
+                if (!this.useBattery()) return;
+                logToResult(`${this.name} - Tin đã gửi: `);
+                this.sentMessage.forEach((msg, i) => logToResult(`${i + 1}. ${msg}`));
+            }
+        }
+
+        function logToResult(message) {
+            document.getElementById("result").innerHTML += message + "<br>";
+        }
+
+
+        let phoneA = new Mobile("Xiaomi Redmi Note 12");
+        let phoneB = new Mobile("Samsung Galaxy Ultra 12");
+
+        phoneA.turnOn();
+        phoneB.turnOn();
+
+        phoneA.composeMessage("Hello my friend !");
+        phoneA.sendMessage(phoneB);
+
+        phoneB.viewInbox();
+        phoneB.composeMessage("Hello, how are you ?");
+        phoneB.sendMessage(phoneA);
+
+        phoneB.viewInbox();
+        // phoneA.viewSentMessage();
+
+        phoneA.checkStatus();
+        phoneB.checkStatus();
+    </script>
+</body>
+</html>

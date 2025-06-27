@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+  <script>
+    // cách 1: khai báo giống hàm
+    //khai báo
+    //tạo ra 1 kiểu dữ liệu mới: number, string, ...
+    // function Person(name, age) {
+    //   // thuộc tính (attribute, fields, properties)
+    //   this.name = name;
+    //   this.age = age;
+    //
+    //   this.say = function () {
+    //     console.log(`${this.name} biết nói rồi, tôi đã 30 tuổi !`)
+    //   }
+    //
+    //   this.move = function () {
+    //     console.log(`${this.name} đang di chuyển !`)
+    //   }
+    // }
+
+    // khởi tạo đối tượng từ lớp Person
+    // let person1 = new Person("Tuan Anh", 30);
+    // console.log(person1);
+
+    // let name = 'Tuan Anh';
+    // let age = '30';
+    //
+    // console.log(name);
+    // console.log(age);
+
+    // console.log(person1.name);
+    // console.log(person1.age);
+    // person1.move();
+
+    // tạo đối tượng và truy cập thuộc tính + phương thức
+    // let person2 = new Person("Dụng", 25);
+    // console.log(person2.name);
+    // console.log(person2.age);
+    // person2.say();
+    // person2.move();
+
+    // const myDate = new Date();
+    // console.log(myDate.getFullYear());  //2025
+    // console.log(myDate.getMonth());   // 0-11
+
+
+    //cách 2: khai báo lớp sử dụng từ khóa class
+    class Circle {
+      #radius = 10;
+      #color;
+
+      constructor() {
+      }
+
+      getRadius() {
+        return this.#radius;
+      }
+
+      getArea() {
+        return Math.PI * this.#radius * this.#radius;
+      }
+    }
+
+    let circle = new Circle();
+    console.log(circle.getRadius());
+    console.log(circle.getArea());
+  </script>
+</body>
+</html>

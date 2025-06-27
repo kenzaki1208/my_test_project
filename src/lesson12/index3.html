@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="demo"></p>
+
+
+    <script>
+        class Apple {
+            constructor(int = 10) {
+                this.int = int;
+            }
+
+            // apple() {
+            //     this.int = 10;
+            // }
+
+            decrease() {
+                if (this.int > 0) {
+                    this.int -= 1;
+                }
+            }
+
+            isEmpty() {
+                if (this.int === 0) return 0;
+            }
+
+            getWeight() {
+                return this.int;
+            }
+        }
+
+        class Human {
+            constructor(name, gender, weight) {
+                this.name = name;
+                this.gender = gender;
+                this.weight = weight;
+            }
+
+            isMale() {
+                return this.gender;
+            }
+
+            setGender(gender) {
+                this.gender = gender;
+            }
+
+            checkApple(apple) {
+                return apple.getWeight() > 0;
+            }
+
+            eatApple(apple) {
+                if (this.checkApple(apple)) {
+                    apple.decrease();
+                    this.weight += 1;
+                }
+            }
+
+            say(message) {
+                alert(message);
+            }
+
+            getName() {
+                return this.name;
+            }
+
+            setName(name) {
+                this.name = name;
+            }
+
+            getWeight() {
+                return this.weight;
+            }
+
+            setWeight() {
+                this.weight = weight;
+            }
+        }
+
+        let apple = new Apple(10);
+        let human1 = new Human("Adam", true, 70);
+        let human2 = new Human("Eva", false, 50);
+
+        while (apple.getWeight() > 0) {
+            human1.eatApple(apple);
+            human1.say("Adam đang ăn táo !");
+            alert(`Cân nặng của Adam: ${human1.getWeight()}, Cân nặng của quả táo: ${apple.getWeight()}`);
+
+            if (apple.getWeight() <= 0) break;
+
+            human2.eatApple(apple);
+            human2.say("Eva đang ăn táo !");
+            alert(`Cân nặng của Eva: ${human1.getWeight()}, Cân nặng của quả táo: ${apple.getWeight()}`);
+        }
+
+        document.getElementById("demo").innerText = `Số lượng táo còn lại: ${apple.isEmpty()}`
+    </script>
+</body>
+</html>
