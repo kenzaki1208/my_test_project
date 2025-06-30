@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      table {
+        max-width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+
+      th, tr, td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+    </style>
+</head>
+<body>
+  <div id="result"></div>
+
+  <script>
+    class student {
+      #name;
+      #age;
+      #studentId;
+
+      constructor(name, age, studentId) {
+        this.#name = name;
+        this.#age = age;
+        this.#studentId = studentId;
+      }
+
+      getName() {
+        return this.#name;
+      }
+
+      getAge() {
+        return this.#age;
+      }
+
+      getStudentId() {
+        return this.#studentId;
+      }
+
+      setName(name) {
+        this.#name = name;
+      }
+
+      setAge(age) {
+        this.#age = age;
+      }
+
+      setStudentId(studentId) {
+        this.#studentId = studentId;
+      }
+
+      displayInfo() {
+        return `Name: ${this.#name}<br> Age: ${this.#age}<br> Student ID: ${this.#studentId}`;
+      }
+    }
+
+    const student1 = new student("John Doe", 20, " S12345");
+    const student2 = new student("Jane Smith", 21, " S67890");
+    const student3 = new student("Alice Johnson", 22, " S54321");
+
+    // student1.displayInfo();
+    // student2.displayInfo();
+    // student3.displayInfo();
+
+    // document.getElementById("result").innerHTML =
+    //         student1.displayInfo() + "<br>" +
+    //         student2.displayInfo() + "<br>" +
+    //         student3.displayInfo();
+
+    let students = [student1, student2, student3];
+    let renderStudentTable = (students) => {
+      let table = "<table>" +
+                    "<tr>" +
+                      "<th>Name</th>" +
+                      "<th>Age</th>" +
+                      "<th>StudentID</th>" +
+                    "</tr>"
+      students.forEach((student) => {
+        table += `<tr>
+            <td>${student.getStudentId()}</td>
+            <td>${student.getName()}</td>
+            <td style="text-align: center">${student.getAge()}</td>
+        </tr>`
+      });
+      table += "</table>";
+      return table;
+    }
+    document.getElementById("result").innerHTML = renderStudentTable(students);
+  </script>
+</body>
+</html>
