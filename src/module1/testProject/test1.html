@@ -77,13 +77,13 @@
     let renderStudentTable = (students) => {
       let table = "<table>" +
                     "<tr>" +
+                      "<th>StudentID</th>" +
                       "<th>Name</th>" +
                       "<th>Age</th>" +
-                      "<th>StudentID</th>" +
                     "</tr>"
       students.forEach((student) => {
         table += `<tr>
-            <td>${student.getStudentId()}</td>
+            <td style="text-align: center">${student.getStudentId()}</td>
             <td>${student.getName()}</td>
             <td style="text-align: center">${student.getAge()}</td>
         </tr>`
